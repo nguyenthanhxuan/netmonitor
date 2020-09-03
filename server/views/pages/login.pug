@@ -1,0 +1,15 @@
+extends ../layout/main.pug
+block content
+  .container
+    .row
+      .col-md-12
+        .login-wrap
+          .login-content.text-center
+            p.h3 Đăng nhập hoặc đăng ký để nhận tin nhắn cảnh báo thông qua zalo
+            a(
+              role="button"
+              class="btn btn-outline-primary"
+              href="/auth/zalo"
+            ) Đăng nhập tài khoản
+            //- <a role="button" class="btn btn-outline-primary">Primary</a>
+            //- a(href="/auth/zalo") Đăng nhập tài khoản

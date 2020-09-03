@@ -1,0 +1,9 @@
+extends ../layout/main.pug
+block content
+  .container
+    .row
+      .col-md-12
+        h1 Phần mềm theo dõi mạng TT THDL
+        if !user.user_data.status
+          p= "Xin chào " + user.user_data.name + " đã gia nhập"
+          p Quản trị sẽ kiểm tra và cấu hình để bạn nhận được tin nhắn cảnh báo

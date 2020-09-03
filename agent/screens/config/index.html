@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; script-src 'self'"
+        />
+        <meta
+            http-equiv="X-Content-Security-Policy"
+            content="default-src 'self'; script-src 'self'"
+        />
+        <title>netMonitor - Cấu hình</title>
+        <link
+            rel="stylesheet"
+            href="../../assets/bootstrap/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="../../assets/styles.css">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10">
+                    <form id="search-form">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="search-text"
+                                    placeholder="Tìm kiếm"
+                                />
+                            </div>
+                            <div class="form-group col-md-4">
+                                <select id="inputState" class="form-control">
+                                    <option value="">Trạng thái</option>
+                                    <option value="1">Đang chạy</option>
+                                    <option value="0">Tạm dừng</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <button type="button" id="search" class="btn btn-outline-primary btn-block">Tìm kiếm</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-2">
+                    <button type="button" id="add-net-btn" class="btn btn-outline-primary btn-block">Thêm</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Tên</th>
+                            <th scope="col">Host/Domain</th>
+                            <th scope="col">Giao thức</th>
+                            <th scope="col">Interval (s)</th>
+                            <th scope="col">DownTime</th>
+                            <th scope="col">Trạng thái</th>
+                            <th scope="col" class="h-action">Thao tác</th>
+                          </tr>
+                        </thead>
+                        <tbody id="nets-body">
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- You can also require other files to run in this process -->
+        <script src="./renderer.js"></script>
+        <!-- <script src="../../assets/vue/vue.min.js"></script>
+        <script src="./config.js"></script> -->
+    </body>
+</html>

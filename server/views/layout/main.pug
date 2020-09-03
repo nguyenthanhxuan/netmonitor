@@ -1,0 +1,68 @@
+html
+  head
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    title= title
+    link(
+      rel="icon"
+      type="image/png"
+      href="./imgs/network.png"
+    )
+    link(
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    )
+    link(rel="stylesheet", href="./css/style.css")
+  body(class=page_class)
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+      <a class="navbar-brand my-0 mr-md-auto" href="/"><img src="./imgs/network.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> Network monitor</a>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="/">Trang chủ</a>
+        if user != undefined && user.user_data.isAdmin
+          <a class="p-2 text-dark" href="/config">Cấu hình</a>
+        <a class="p-2 text-dark" href="/monitor">Theo dõi mạng</a>
+      </nav>
+      if user != undefined
+        <div class="dropdown logged-menu">
+          button(
+            class="btn btn-outline-primary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          )
+            - var userAvatar = user.picture.data.url
+            img(
+              src=userAvatar
+              class="rounded-circle"
+              width="32"
+              height="32"
+            )
+            span(
+              class="p-2"
+            )= user.name
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/logout">Thoát</a>
+          </div>
+        </div>
+      else
+        <a class="btn btn-outline-primary" href="/login">Đăng nhập</a>
+    </div>
+
+    block content
+
+    <footer class="footer mt-auto py-3">
+      <div class="container">
+        <span class="text-muted">Coppyright © 2020 by Trung tam Tin hoc - Cong bao</span>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    script(src="/js/script.js")
+    block js

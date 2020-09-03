@@ -1,0 +1,20 @@
+extends ../layout/main.pug
+block content
+    .container
+        .row
+            .col-md-12
+                each agent in agents
+                    section(
+                        class="agent"
+                        id=agent.id
+                        ip=agent.ip
+                    )
+                        header.bg-info
+                            if agent.status
+                                a.h4.text-white="Máy chủ: " + agent.name
+                            else
+                                a.h4.text-white="Máy chủ: " + agent.name + " Đã mất kết nối"
+                        .network.row.row-cols-1.row-cols-md-4
+
+block js
+    script(src="/js/monitor.js")

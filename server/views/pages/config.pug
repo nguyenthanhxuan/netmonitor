@@ -1,0 +1,100 @@
+extends ../layout/main.pug
+block content
+    .container
+        .row
+            .col-md-12
+                h2 Quản trị tài khoản
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Tên</th>
+                            <th scope="col">Zalo ID</th>
+                            <th scope="col">Trạng thái</th>
+                            <th scope="col">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        - var i = 1;
+                        each user in users
+                            <tr>
+                                th(scope="row")=i
+                                td
+                                    b=user.name
+                                td=user.uid
+                                if user.status == true
+                                    td
+                                        span(
+                                            class="badge badge-success user-status"
+                                            uid=user.id
+                                        ) Hoạt động
+                                    td
+                                        button(
+                                            type="button"
+                                            class="btn btn-primary btn-sm user-click active"
+                                            data-toggle="button"
+                                            aria-pressed="true"
+                                            uid=user.id
+                                        ) Dừng gửi cảnh báo
+                                else
+                                    td
+                                        span(
+                                            class="badge badge-warning user-status"
+                                            uid=user.id
+                                        ) Tạm dừng
+                                    td
+                                        button(
+                                            type="button"
+                                            class="btn btn-primary btn-sm user-click"
+                                            data-toggle="button"
+                                            aria-pressed="false"
+                                            uid=user.id
+                                        ) Gửi cảnh báo
+
+                            </tr>
+                            - i = i +1;
+                    </tbody>
+                </table>
+
+        .row
+            .col-md-12
+                h2 Quản trị máy chủ kết nối
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Tên máy chủ</th>
+                            <th scope="col">Địa chỉ ip</th>
+                            <th scope="col">Lần kết nối cuối</th>
+                            <th scope="col">Trạng thái</th>
+                            <th scope="col">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        - var i = 1;
+                        each agent in agents
+                            <tr>
+                                th(scope="row")=i
+                                td
+                                    b=agent.name
+                                td=agent.ip
+                                td=agent.hello
+                                if agent.status
+                                    td
+                                        <span class="badge badge-success">Hoạt động</span>
+                                else
+                                    td
+                                        <span class="badge badge-danger">Mất kết nối</span>
+                                td
+                                    button(
+                                        type="button"
+                                        class="btn btn-danger btn-sm agent-delete"
+                                        agent-id=agent.id
+                                    ) Xóa
+
+                            </tr>
+                            - i = i +1;
+                    </tbody>
+                </table>
+block js
+    script(src="/js/config.js")

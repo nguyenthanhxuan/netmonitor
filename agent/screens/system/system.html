@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; script-src 'self'"
+        />
+        <meta
+            http-equiv="X-Content-Security-Policy"
+            content="default-src 'self'; script-src 'self'"
+        />
+        <title>Cấu hình kết nối máy chủ</title>
+        <link
+            rel="stylesheet"
+            href="../../assets/bootstrap/css/bootstrap.min.css"
+        />
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 id="title">Cấu hình Agent</h2>
+                    <form id="system-form">
+                        <div class="form-group">
+                            <label for="server_url">Địa chỉ máy chủ</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="server_url"
+                                placeholder="Địa chỉ máy chủ"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="agent_name">Tên Agent</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="agent_name"
+                                placeholder="Tên Agent"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="agent_ip">IP của Agent</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="agent_ip"
+                                placeholder="Agent IP"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" id="save-system" class="btn btn-primary btn-block">
+                                Lưu cấu hình
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="./system.js"></script>
+    </body>
+</html>

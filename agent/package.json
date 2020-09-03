@@ -1,0 +1,24 @@
+{
+  "name": "netmonitor",
+  "version": "1.0.0",
+  "description": "agent of netMonitor",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . netMonitor --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/images/network_icon.ico --prune=true --out=release-builds --version-string.CompanyName=THCB --version-string.FileDescription=netMonitor --version-string.ProductName=\"netMonitor\""
+  },
+  "keywords": [
+    "netmonitor",
+    "electron"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^9.1.2"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "electron-store": "^6.0.0",
+    "ping": "^0.2.3"
+  }
+}
