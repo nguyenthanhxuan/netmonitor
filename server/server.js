@@ -66,7 +66,6 @@ passport.use(
 
 passport.serializeUser(function (user, cb) {
     cb(null, user);
-    // console.log('seriallize run');
 });
 
 passport.deserializeUser(function (obj, cb) {
@@ -75,7 +74,7 @@ passport.deserializeUser(function (obj, cb) {
 
 
 // ZALO CONNECT
-const ZaloAction = new Zalo('3622534041368933457', 'HB2PC2BBJXnXSID650CW', db);
+const ZaloAction = new Zalo(process.env.ZALO_APP_ID, process.env.ZALO_APP_SECRET, db);
 
 // Line Connect
 const LineAction = new Line();
