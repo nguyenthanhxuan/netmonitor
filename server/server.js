@@ -104,8 +104,6 @@ const alertAgentDown = async (agent) => {
             await ZaloAction.sendMessage(agentDownMessage, '', user.uid.toString());
         })();
     });
-
-    l
 } 
 
 // Check active agent
